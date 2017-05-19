@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="resource" extends="struts-default" namespace="/">
+		<action name="uploadDate" class="com.resource.web.UploadFileAction"   method="uploadDate">
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="deleteFile" class="com.resource.web.UploadFileAction"   method="deleteFile">
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="uploadBatchDate" class="com.resource.web.UploadBatchFileAction"   method="uploadBatchDate">
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		
+		
+	</package>
+</struts>

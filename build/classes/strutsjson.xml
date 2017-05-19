@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="re" extends="json-default" namespace="/">
+	<!-- 定义一个拦截器 -->  
+        <interceptors>  
+            <interceptor name="authority"  
+                class="com.resource.listen.RequestInterceptor">  
+            </interceptor>  
+            <!-- 拦截器栈 -->  
+            <interceptor-stack name="mydefault">  
+                <interceptor-ref name="defaultStack" />  
+                <interceptor-ref name="authority" />  
+            </interceptor-stack>  
+        </interceptors> 
+        
+		<action name="breakpontUpload" class="com.resource.web.BreakpointUploadFileAction"   method="breakpontUpload">
+			<result type="json">
+				<param name="root">responseJson</param>
+			</result>
+			<interceptor-ref name="mydefault" />  
+		</action>
+
+		<action name="breakpontUploadFinish" class="com.resource.web.BreakpointUploadFileAction"   method="breakpontUploadFinish">
+			<result type="json">
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		
+		<action name="batchUploadImg" class="com.resource.web.BatchUploadImageAndVideoAction"   method="batchUploadImageAndVideo">
+			<result type="json">
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		
+		
+		<action name="uploadImages" class="com.resource.web.BatchUploadImageAndVideoAction"   method="uploadImages">
+			<result type="json">
+				<param name="root">responseJson</param>
+			</result>
+			  <interceptor-ref name="mydefault" />  
+		</action>
+		
+		<!-- add -->
+		
+		<action name="uploadDate" class="com.resource.web.UploadFileAction"   method="uploadDate">
+			<result type="json">
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		
+		<action name="deleteFile" class="com.resource.web.UploadFileAction"   method="deleteFile">
+			<result type="json">
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		
+		<action name="uploadBatchDate" class="com.resource.web.UploadBatchFileAction"   method="uploadBatchDate">
+			<result type="json">
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		
+		
+		
+	</package>
+</struts>

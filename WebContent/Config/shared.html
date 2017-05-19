@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>美女在身边</title>
+<script type="text/javascript" src="static/jquery-1.11.0.min.js" ></script>
+<style>
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    padding: 0;
+    margin: 0;
+}
+div{
+	background:#ffffff;
+}
+/**
+.div_bg{
+	z-index:1;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.content{
+    zoom:1;
+	z-index:2;
+	position:absolute;
+	left:0px;
+	top:0px;
+	background:none;
+	width:100%;
+	height:100%;
+}
+**/
+.content{
+    zoom:1;
+	
+}
+.content:after{
+    **content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; 
+}
+.div_indicate{
+	
+	background:none;
+	
+}
+.indicate_anim{
+	animation:myframes 2s;
+	-moz-animation:myframes 2s; /* Firefox */
+	-webkit-animation:myframes 2s; /* Safari and Chrome */
+	-o-animation:myframes 2s; /* Opera */
+}
+.div_content_p{
+	width:100%;
+	text-align:center;
+	padding-top:10px;
+	
+}
+.div_btn{
+	text-align:center;
+	padding:5px 0px;
+	margin:0 15px;
+	border-radius:3.5px;	
+	-moz-border-radius:3.5px; /* 老的 Firefox */	
+	font-size:24px;
+	color:#fff;
+	background:#eda8b9;
+}
+.div_btn:hover{
+	text-align:center;
+	padding:5px 0px;
+	margin:0 15px;
+	border-radius:3.5px;	
+	-moz-border-radius:3.5px; /* 老的 Firefox */	
+	font-size:24px;
+	color:#fff;
+	background:blue;
+	cursor:pointer;
+}
+.div_content{
+	text-align:center;
+	padding:0 15px 20px 15px;
+	background-image: url('static/beauty__share_bottom.png') !important ;
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+.div_text{
+	text-align:left;
+	padding:25px 15px 5px 15px;
+	font-size:12px;
+	line-height:150%;	
+	margin-top:15px;
+	background:none;
+	background-image:url('static/beauty__share_details.png') !important ;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
+.img_content_bg{
+	z-index:1;
+	position:relative;
+	bottom:0px;
+	left:0px;
+}
+@media only screen and (min-width: 1024px){
+    .div_indicate{
+            width: 100%;
+            display:none;
+        }
+}
+@media only screen and (min-width: 400px) and (max-width: 1024px){
+    .div_indicate{
+            width: 100%;
+            display:none;
+        }
+}
+@media only screen and (max-width: 400px){
+    .div_indicate{
+            width: 100%;
+            display:none;
+        }
+}
+@keyframes myframes
+{
+	from {height:0px;}
+	to {height:100px;}
+}
+@-moz-keyframes myframes /* Firefox */
+{
+	from {height:0px;}
+	to {height:100px;}
+}
+
+@-webkit-keyframes myframes /* Safari and Chrome */
+{
+	from {height:0px;}
+	to {height:100px;}
+}
+
+@-o-keyframes myframes /* Opera */
+{
+	from {height:0px;}
+	to {height:100px;}
+}
+
+</style>
+<script type="text/javascript">
+	var params = "";
+	var index=self.location.href.indexOf("?")//查看是否包含参数   
+	if(index>0)//存在参数   
+	{   
+	  //参数   
+	params = self.location.href.substr(index+1); 
+	//alert(params);
+	} 
+
+	//平台、设备和操作系统
+	var system ={
+		win : false,
+		mac : false,
+		xll : false
+	};
+	//检测平台
+	var p = navigator.platform;
+	system.win = p.indexOf("Win") == 0;
+	system.mac = p.indexOf("Mac") == 0;
+	system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+	//跳转语句
+	if(system.win||system.mac||system.xll){
+		//alert("PC访问");
+		window.location = "index.html";
+	}else{
+		//alert("非PC访问");
+		//document.getElementById("msg").innerHTML +=	"非PC访问 <br/>";	
+	}
+ 
+  var browser={
+		versions:function(){
+            var u = navigator.userAgent, app = navigator.appVersion;
+            return {         //移动终端浏览器版本信息
+                 trident: u.indexOf('Trident') > -1, //IE内核
+                presto: u.indexOf('Presto') > -1, //opera内核
+                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
+                iPad: u.indexOf('iPad') > -1, //是否iPad
+                webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+		weChat: u.toLowerCase().match(/MicroMessenger/i) == 'micromessenger'
+            };
+         }(),
+         language:(navigator.browserLanguage || navigator.language).toLowerCase()
+	}
+  var timeout;
+	function open_appstore() {
+		
+		if(browser.versions.ios){
+			//window.location="itms-apps://itunes.apple.com/cn/app/qq-2011/id444934666?mt=8";
+			//window.location="http://itunes.apple.com/cn/app/qq-2011/id444934666?mt=8";
+			alert("等待APP在Apple Store中上架");
+		}else if(browser.versions.android){
+			// 
+			//alert("跳转到指定页面下载APP");
+			//window.location="http://115.159.73.236/";
+			//window.location="http://android.25pp.com/detail_6643406.html";
+			//window.location="http://openbox.mobilem.360.cn/qing/app?sid=3140948&fm=";
+		}
+	} 
+	function try_to_open_app() {
+		if(browser.versions.weChat){
+			return ;
+		}
+		if(browser.versions.ios){
+			var skipUrl = "yuedan://?"+params;
+			//APP URL Schemes
+			//window.location="mqq:open";
+			window.location = skipUrl ;
+		}else if(browser.versions.android){
+			// 
+			//alert("直接打开android app");
+			//eg: host:frank.com port:8088 scheme:proto  
+			//window.location = "proto://frank.com:8088?param1=123&version=1.2.1";
+			//window.location="yuepai://app.com/?tid=zhenfei.wang&toFirstGuid=yurpai";
+			//选美：beauty  约单：order_detail
+			var skipUrl = "yuepai://app.com/beauty?"+params;
+			window.location = skipUrl;
+		}
+		timeout = setTimeout('open_appstore()', 300);
+	}
+	
+	var btn_click = function(tag){
+		if(browser.versions.ios && browser.versions.weChat){
+			var height = $("#img_bg").height();		
+			$("#div_indicate").slideDown("slow",function(){
+				location.hash="#div_indicate";
+			});
+		}else if(browser.versions.android && browser.versions.weChat){
+			window.location="http://openbox.mobilem.360.cn/qing/app?sid=3140948&fm=";
+			var imgUrl = "static/beauty__share_guide-1.jpg";
+			$("#img_bg").attr("src",imgUrl);
+			$("#div_indicate").slideDown("slow",function(){
+				location.hash="#div_indicate";
+			});
+		}else{
+			//window.location="http://openbox.mobilem.360.cn/qing/app?sid=3140948&fm=";
+			try_to_open_app();
+		}
+	};
+</script>
+</head>
+
+<body>
+
+<div class="content">
+  <div id="div_indicate" class="div_indicate " style="width:100%;display:none;">
+	<img src="static/beauty__share_guide.jpg" id="img_bg"  style="width:100%;display:block" />	
+  </div>
+  <div id="div_logo" class="div_logo">
+	<img src="static/beauty__share_posters.png" id=""  style="width:100%;display:block" />	
+  </div>
+  <div class="div_content_p">
+	<div class="div_btn" onclick="btn_click(this);">	
+		<span><font>立即参与</font></span>
+		<!--
+		<img src="static/beauty_share__text.png" />
+		-->
+	</div>
+ 
+	<div class="div_content">
+		<div class="div_text">
+			<p>在约单APP中上传您的靓照和视频将有机会获得奖励哦，一票等于人民币1元。</p>
+			<p>1.活动结束后，每个参赛者所获得的票数将转换为等值的奖金归参赛者所有</p>
+			<p>2.得票数最高的参赛者将有机会成为约拍官方主播</p>
+			<p>3.成为官方主播后，主播将拥有官方主播室，主播室相关奖励均归主播所有</p>
+			<p>4.约拍将每月为官方主播发放工资</p>
+			<p>5.本活动最终解释权归约拍所有</p>
+		</div>
+	</div>
+  </div>
+</div>
+</body>
+</html>
+<script>
+	try_to_open_app();
+</script>
